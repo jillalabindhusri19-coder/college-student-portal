@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Table</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            text-align: center;
+            margin: 0;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+        }
+
+        .timetable {
+            margin: 30px auto;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .timetable img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .download {
+            display: inline-block;
+            margin: 15px;
+            padding: 12px 20px;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .message {
+            margin-top: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>📅 Time Table</h1>
+    </div>
+
+    {% if timetable %}
+
+        <div class="timetable">
+
+            <h2>📚 Your Class Time Table</h2>
+
+            <p>
+                {{ timetable.branch }} -
+                {{ timetable.year }} Year -
+                Section {{ timetable.section }} -
+                {{ timetable.semester }} Semester
+            </p>
+
+            <img src="{{ timetable.timetable_file.url }}"
+                 alt="Class Time Table">
+
+            <br>
+
+            <a class="download"
+               href="{{ timetable.timetable_file.url }}"
+               target="_blank">
+                📥 Open / Download Time Table
+            </a>
+
+        </div>
+
+    {% else %}
+
+        <div class="message">
+            <p>❌ No timetable uploaded for your class yet.</p>
+        </div>
+
+    {% endif %}
+
+</body>
+</html>

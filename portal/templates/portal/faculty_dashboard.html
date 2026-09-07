@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            height: 60px;
+            background: #1f4e79;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .menu-button {
+            font-size: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: white;
+            overflow-x: hidden;
+            transition: 0.3s;
+            box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+            padding-top: 70px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background: #eeeeee;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 28px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>Faculty Portal</h2>
+
+        <button class="menu-button" onclick="openMenu()">
+            ☰
+        </button>
+    </div>
+
+    <div class="content">
+
+        <h1>Welcome Faculty 👨‍🏫</h1>
+
+        <h3>Faculty Dashboard</h3>
+
+        <p>Welcome to the College Faculty Portal.</p>
+
+    </div>
+
+    <div id="sideMenu" class="sidebar">
+
+        <button class="close-button" onclick="closeMenu()">×</button>
+
+        <a href="{% url 'upload_timetable' %}">📅 Upload Time Table</a>
+        
+        <a href="{% url 'upload_notes' %}">📚 Upload Notes</a>
+        
+        <a href="{% url 'upload_question_paper' %}">📄 Previous Year Question Papers</a> 
+        
+
+        
+
+        
+        <a href="{% url 'faculty_logout' %}">🚪 Logout</a>
+
+    </div>
+
+    <script>
+
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "300px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+
+    </script>
+
+</body>
+</html>

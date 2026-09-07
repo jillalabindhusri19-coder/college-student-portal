@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>College Portal</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            color: #1f4e79;
+            font-size: 28px;
+        }
+
+        .container p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* PORTAL CARDS */
+
+        .portal-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .portal-card {
+            background: white;
+            width: 320px;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .portal-icon {
+            font-size: 55px;
+        }
+
+        .portal-card h3 {
+            color: #1f4e79;
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .portal-card p {
+            font-size: 15px;
+            color: #666;
+            min-height: 45px;
+        }
+
+        /* BUTTON */
+
+        .portal-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 30px;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .portal-button:hover {
+            background: #163a5c;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+            background: #1f4e79;
+            color: white;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .portal-card {
+                width: 90%;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>🎓 College Portal</h1>
+
+        <p>
+            Student & Faculty Management System
+        </p>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+        <h2>Welcome to College Portal</h2>
+
+        <p>
+            Please select your portal to continue
+        </p>
+
+
+        <div class="portal-container">
+
+
+            <!-- STUDENT PORTAL -->
+
+            <div class="portal-card">
+
+                <div class="portal-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Student Portal
+                </h3>
+
+                <p>
+                    Access timetable, room numbers,
+                    notes, coordinators and student details.
+                </p>
+
+                <a
+                    href="{% url 'student_portal' %}"
+                    class="portal-button"
+                >
+                    Enter Student Portal
+                </a>
+
+            </div>
+
+
+            <!-- FACULTY PORTAL -->
+
+            <div class="portal-card">
+
+                <div class="portal-icon">
+                    👨‍🏫
+                </div>
+
+                <h3>
+                    Faculty Portal
+                </h3>
+
+                <p>
+                    Upload timetables, subject notes
+                    and manage faculty information.
+                </p>
+
+                <a
+                    href="{% url 'faculty_login' %}"
+                    class="portal-button"
+                >
+                    Enter Faculty Portal
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <p>
+            © 2026 College Portal
+        </p>
+
+    </div>
+
+
+</body>
+</html>

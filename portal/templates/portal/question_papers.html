@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Previous Year Question Papers</title>
+</head>
+
+<body>
+
+<h1>📄 Previous Year Question Papers</h1>
+
+{% if papers %}
+
+    {% for paper in papers %}
+
+        <div>
+            <h2>📚 {{ paper.subject_name }}</h2>
+
+            <p>
+                <b>Exam Year:</b> {{ paper.exam_year }}
+            </p>
+
+            <a href="{{ paper.question_paper.url }}" target="_blank">
+                📄 View Question Paper
+            </a>
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+{% else %}
+
+    <h3>📭 No question papers available.</h3>
+
+{% endif %}
+
+<br>
+
+<a href="{% url 'student_dashboard' %}">
+    ⬅ Back to Student Dashboard
+</a>
+
+</body>
+</html>

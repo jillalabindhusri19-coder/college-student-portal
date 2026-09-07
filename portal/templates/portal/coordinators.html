@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject Coordinators</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .subject {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .subject h2 {
+            color: #1f4e79;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>👨‍🏫 Subject Coordinators</h1>
+    </div>
+
+    <div class="container">
+
+        {% if subjects %}
+
+            {% for subject in subjects %}
+
+                <div class="subject">
+
+                    <h2>📚 {{ subject.subject_name }}</h2>
+
+                    {% if subject.coordinator %}
+
+                        <p>
+                            <b>Coordinator:</b>
+                            {{ subject.coordinator.faculty_name }}
+                        </p>
+
+                    {% else %}
+
+                        <p>Coordinator not assigned yet.</p>
+
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <h2>❌ No subjects found for your class.</h2>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

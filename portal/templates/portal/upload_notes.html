@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload Notes</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 550px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px;
+            margin-top: 7px;
+        }
+
+        button {
+            width: 100%;
+            background: #1f4e79;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 25px;
+        }
+
+        .message {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #1f4e79;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>📚 Upload Subject Notes</h1>
+    </div>
+
+    <div class="container">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <label>Branch</label>
+
+            <select name="branch" required>
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+            </select>
+
+
+            <label>Year</label>
+
+            <select name="year" required>
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+            </select>
+
+
+            <label>Semester</label>
+
+            <select name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+            </select>
+
+
+            <label>Section</label>
+
+            <select name="section" required>
+                <option value="">Select Section</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+
+
+            <label>Subject Name</label>
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Enter subject name"
+                required
+            >
+
+
+            <label>Choose Notes PDF</label>
+
+            <input
+                type="file"
+                name="notes_pdf"
+                accept=".pdf,application/pdf"
+                required
+            >
+
+
+            <button type="submit">
+                📤 Upload Notes
+            </button>
+
+        </form>
+
+
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+
+        <a
+            href="{% url 'faculty_dashboard' %}"
+            class="back"
+        >
+            ⬅ Back to Faculty Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>

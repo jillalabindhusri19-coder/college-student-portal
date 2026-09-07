@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Number</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            text-align: center;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+        }
+
+        .room-card {
+            background: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .room-number {
+            font-size: 45px;
+            font-weight: bold;
+            color: #1f4e79;
+            margin: 20px;
+        }
+
+        .info {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #555;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>🏫 Classroom Room Number</h1>
+    </div>
+
+    {% if timetable %}
+
+        <div class="room-card">
+
+            <h2>Your Classroom</h2>
+
+            <div class="room-number">
+                🚪 {{ timetable.room_no }}
+            </div>
+
+            <div class="info">
+                <b>Branch:</b> {{ timetable.branch }} <br>
+                <b>Year:</b> {{ timetable.year }} Year <br>
+                <b>Section:</b> {{ timetable.section }} <br>
+                <b>Semester:</b> {{ timetable.semester }} Semester
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="room-card">
+            <h2>❌ Room Number Not Available</h2>
+
+            <p>
+                Your faculty has not uploaded a room number
+                for your class yet.
+            </p>
+        </div>
+
+    {% endif %}
+
+    <a href="{% url 'student_dashboard' %}" class="back-button">
+        ⬅ Back to Dashboard
+    </a>
+
+</body>
+</html>

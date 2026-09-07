@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #1f4e79;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1f4e79;
+        }
+
+        .continue-button {
+            width: 100%;
+            margin-top: 30px;
+            padding: 14px;
+            background: #1f4e79;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .continue-button:hover {
+            background: #163a5c;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #1f4e79;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>🎓 College Student Portal</h1>
+        <p>Enter your class details to continue</p>
+    </div>
+
+    <div class="container">
+
+        <h2>👨‍🎓 Student Details</h2>
+
+        <form method="POST" action="{% url 'student_dashboard' %}">
+            
+            {% csrf_token %}
+
+            <!-- Student Name -->
+            <label>Student Name:</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            
+            <!-- Branch -->
+            <label>Branch:</label>
+            <select name="branch" required>
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+            </select>
+
+            <!-- Section -->
+            <label>Section:</label>
+            <select name="section" required>
+                <option value="">Select Section</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+
+            <!-- Year -->
+            <label>Year:</label>
+            <select name="year" required>
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+            </select>
+
+            <!-- Semester -->
+            <label>Semester:</label>
+            <select name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+            </select>
+
+            <button type="submit" class="continue-button">
+                Continue ➜
+            </button>
+
+        </form>
+
+        <a href="{% url 'home' %}" class="back-button">
+            ⬅ Back to Home
+        </a>
+
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Previous Year Question Paper</title>
+</head>
+<body>
+
+<h1>📄 Upload Previous Year Question Paper</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Branch:</label>
+    <select name="branch" required>
+        <option value="">Select Branch</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="MECH">MECH</option>
+        <option value="CIVIL">CIVIL</option>
+    </select>
+
+    <br><br>
+
+    <label>Year:</label>
+    <select name="year" required>
+        <option value="">Select Year</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+    </select>
+
+    <br><br>
+
+    <label>Section:</label>
+    <select name="section" required>
+        <option value="">Select Section</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+
+    <br><br>
+
+    <label>Semester:</label>
+    <select name="semester" required>
+        <option value="">Select Semester</option>
+        <option value="1">1st Semester</option>
+        <option value="2">2nd Semester</option>
+    </select>
+
+    <br><br>
+
+    <label>Subject:</label>
+    <input type="text" name="subject_name"
+           placeholder="Enter subject name" required>
+
+    <br><br>
+
+    <label>Exam Year:</label>
+    <input type="number" name="exam_year"
+           placeholder="Example: 2025"
+           min="2000" max="2100" required>
+
+    <br><br>
+
+    <label>Choose Question Paper PDF:</label>
+    <input type="file" name="question_paper"
+           accept=".pdf" required>
+
+    <br><br>
+
+    <button type="submit">📤 Upload Question Paper</button>
+</form>
+
+{% if message %}
+    <h3>{{ message }}</h3>
+{% endif %}
+
+<br>
+
+<a href="{% url 'faculty_dashboard' %}">
+    ⬅ Back to Faculty Dashboard
+</a>
+
+</body>
+</html>

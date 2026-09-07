@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .details {
+            background: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .details p {
+            font-size: 18px;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>👨‍🎓 Student Details</h1>
+    </div>
+
+    <div class="details">
+
+        <p><b>Name:</b> {{ name }}</p>
+
+        <p><b>Branch:</b> {{ branch }}</p>
+
+        <p><b>Section:</b> {{ section }}</p>
+
+        <p><b>Year:</b> {{ year }}</p>
+
+        <p><b>Semester:</b> {{ semester }}</p>
+
+    </div>
+
+</body>
+</html>
